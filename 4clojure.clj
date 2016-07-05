@@ -6,3 +6,11 @@
                 (recur (concat new-vec (flat x)) therest)
                 (recur (conj new-vec x) therest)))
             (sort new-vec))))
+
+(filter (fn [y]
+          (Character/isUpperCase y)) "skjKLSJDFkjs")
+
+(map (fn [x]
+       (if (= (str x) (.toUpperCase (str x)))
+         (str x)
+         )) "AKskdKAkfsn")
