@@ -34,3 +34,9 @@
       true
       false)
     false))
+ (reduce)
+
+(fn [x] (loop [new-list [] old-list (vec x) cnt (- (count old-list) 1)]
+          (if (= (count (vec new-list)) (count old-list))
+            new-list
+            (recur (conj new-list (nth old-list cnt)) old-list (dec cnt)))))
