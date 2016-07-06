@@ -40,3 +40,14 @@
           (if (= (count (vec new-list)) (count old-list))
             new-list
             (recur (conj new-list (nth old-list cnt)) old-list (dec cnt)))))
+
+(let-fn [(rever [new-list]
+           (if (not-empty new-list)
+             (conj (rever (rest new-list)) (first new-list))
+             []))])
+
+(fn [x]
+  (loop [new-list [] cnt 0]
+    (if (= (* (count x) 2) (count new-list))
+      new-list
+      (recur (conj new-list (nth x cnt)) (inc cnt)))))
