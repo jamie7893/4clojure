@@ -27,3 +27,10 @@
    (loop [prev nil cnt 0]
      (if (= prev nil)
        )))
+
+(fn [x m]
+  (if (contains? m x)
+    (if (= (m x) nil)
+      true
+      false)
+    false))
