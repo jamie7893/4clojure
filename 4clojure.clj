@@ -14,3 +14,9 @@
        (if (= (str x) (.toUpperCase (str x)))
          (str x)
          )) "AKskdKAkfsn")
+
+(fn [x]
+  (loop [cnt 0]
+    (if (= (get (vec x) cnt) nil)
+      cnt
+      (recur (inc cnt)))))
