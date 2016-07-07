@@ -46,6 +46,14 @@
              (conj (rever (rest new-list)) (first new-list))
              []))])
 
+(fn [& more-args]
+  (loop [high 0 cnt 0]
+    (if (= cnt (- (count (vec more-args)) 1))
+      high
+      (if (> (nth more-args cnt) high)
+        (recur (nth more-args cnt) (inc cnt))
+        (recur high (inc cnt))))))
+
 (fn [x]
   (loop [new-list [] cnt 0]
     (if (= (* (count x) 2) (count new-list))
