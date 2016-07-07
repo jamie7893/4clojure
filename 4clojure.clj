@@ -85,3 +85,12 @@
       (if (< (- (count y) 1) cnt)
         new-list
         (recur (conj new-list (nth x cnt) (nth y cnt)) (inc cnt))))))
+
+(fn [x y]
+  (loop [new-list [] cnt 0 do y at 0]
+    (if (= (count x) cnt)
+      new-list
+      (if (= at do)
+        (recur new-list (inc cnt) do 0)
+        (recur (conj new-list (nth x cnt)) cnt do (inc at))
+        ))))
