@@ -57,6 +57,7 @@
 
 (fn [x]
   (loop [new-list [] cnt 0]
-    (if (= (* (count x) 2) (count new-list))
+    (if (= (count new-list) (* (count x) 2))
       new-list
-      (recur (conj new-list (nth x cnt)) (inc cnt)))))
+      (recur (conj new-list (nth x cnt) (nth x cnt)) (inc cnt)))))
+
