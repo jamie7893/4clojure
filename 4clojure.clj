@@ -102,3 +102,13 @@
       (if (= (- (count x) 1) cnt)
         (recur (conj new-list (nth x cnt)) (inc cnt))
         (recur (conj new-list (nth x cnt) y) (inc cnt))))))
+
+(fn [x]
+  (loop [new-list [] current "" cnt 0 times 0]
+    (if (= (count x) cnt)
+      (conj new-list (repeat times current))
+      (if (= (nth x cnt) current)
+        (recur new-list current (inc cnt) (inc times))
+        (if (> times 0)
+          (recur (conj new-list (repeat times current)) (nth x cnt) (inc cnt) 1)
+          (recur new-list (nth x cnt) (inc cnt) (inc times)))))))
