@@ -10,12 +10,13 @@
 (filter (fn [y]
           (Character/isUpperCase y)) "skjKLSJDFkjs")
 
-(fn [y]
-  (let [the-string (map (fn [x]
-                          (if (= (str x) (.toUpperCase (str x)))
-                            (str x)
-                            )) "AKskdKAkfsn")]
-    (filter identity the-string)))
+(fn [x]
+  (loop [new-str "" cnt 0]
+    (if (= cnt (count x))
+      new-str
+      (if (Character/isUpperCase (nth x cnt))
+        (recur (str new-str (nth x cnt)) (inc cnt))
+        (recur new-str (inc cnt))))))
 
 (fn [x]
   (loop [cnt 0]
