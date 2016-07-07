@@ -66,3 +66,11 @@
     (if (= start end)
       list
       (recur (inc start) (conj list start)))))
+
+(fn [x]
+  (loop [newlist [] current "" cnt 0]
+    (if (< (- (count x) 1) cnt)
+      newlist
+      (if (= current (nth x cnt))
+        (recur newlist current (inc cnt))
+        (recur (conj newlist (nth x cnt)) (nth x cnt) (inc cnt))))))
