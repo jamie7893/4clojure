@@ -77,3 +77,11 @@
 
 (fn [x]
   (reduce * (range 1 (+ x 1))))
+
+(fn [x y]
+  (loop [new-list [] cnt 0]
+    (if (< (- (count x) 1) cnt)
+      new-list
+      (if (< (- (count y) 1) cnt)
+        new-list
+        (recur (conj new-list (nth x cnt) (nth y cnt)) (inc cnt))))))
