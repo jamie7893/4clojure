@@ -94,3 +94,11 @@
         (recur new-list (inc cnt) 0)
         (recur (conj new-list (nth x cnt)) cnt (inc at))
         ))))
+
+(fn [y x]
+  (loop [new-list [] cnt 0]
+    (if (= (count new-list) (- (* (count x) 2) 1))
+      new-list
+      (if (= (- (count x) 1) cnt)
+        (recur (conj new-list (nth x cnt)) (inc cnt))
+        (recur (conj new-list (nth x cnt) y) (inc cnt))))))
