@@ -61,3 +61,8 @@
       new-list
       (recur (conj new-list (nth x cnt) (nth x cnt)) (inc cnt)))))
 
+(fn [start end]
+  (loop [start start list []]
+    (if (= start end)
+      list
+      (recur (inc start) (conj list start)))))
