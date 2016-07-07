@@ -74,3 +74,6 @@
       (if (= current (nth x cnt))
         (recur newlist current (inc cnt))
         (recur (conj newlist (nth x cnt)) (nth x cnt) (inc cnt))))))
+
+(fn [x]
+  (reduce * (range 1 (+ x 1))))
