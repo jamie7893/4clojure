@@ -112,3 +112,12 @@
         (if (> times 0)
           (recur (conj new-list (repeat times current)) (nth x cnt) (inc cnt) 1)
           (recur new-list (nth x cnt) (inc cnt) (inc times)))))))
+
+          (fn [x y]
+          (map-indexed (fn [index value]
+          #(zero? (mod y index)))
+          x))
+
+          (fn [x y](map-indexed (fn [index value] #(zero? (mod y index))) x))
+
+       (fn [x y](apply concat (partition (dec y) y nil x)))
