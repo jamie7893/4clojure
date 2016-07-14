@@ -128,3 +128,8 @@
   (if (= (rem x y) 0)
     y
     (gcd y (rem x y))))
+
+(fn [x y]
+  (set (remove nil? (map (fn [z]
+                           (y z))
+                         x))))
