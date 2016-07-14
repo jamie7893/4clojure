@@ -123,3 +123,8 @@
        (fn [x y](apply concat (partition (dec y) y nil x)))
 
 (into {} (map hash-map [1 2 3 4 5] [6 7 8 9 10]))
+
+(fn gcd [x y]
+  (if (= (rem x y) 0)
+    y
+    (gcd y (rem x y))))
