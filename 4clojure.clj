@@ -121,3 +121,5 @@
           (fn [x y](map-indexed (fn [index value] #(zero? (mod y index))) x))
 
        (fn [x y](apply concat (partition (dec y) y nil x)))
+
+(into {} (map hash-map [1 2 3 4 5] [6 7 8 9 10]))
