@@ -133,3 +133,10 @@
   (set (remove nil? (map (fn [z]
                            (y z))
                          x))))
+
+(fn [x y z]
+  (if (x y z)
+    :lt
+    (if (x z y)
+      :gt
+      :eq)))
